@@ -1,0 +1,13 @@
+footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: white;
+    padding: 0 107px;
+
+    p {
+        font-weight: 300;
+        font-size: 14px;
+    }
+}

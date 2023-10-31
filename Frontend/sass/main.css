@@ -200,6 +200,7 @@ main #portfolio .gallery figure img {
 main #portfolio .gallery figure figcaption {
   height: 15px;
   font-size: 13px;
+  color: #3D3D3D;
 }
 main #contact {
   width: 380px;
@@ -218,10 +219,12 @@ main #contact h2 {
 main #contact p {
   text-align: center;
   margin: 9px 0 39px;
+  color: #3D3D3D;
 }
 main #contact label {
   padding: 2px 0;
   margin-bottom: 7px;
+  color: #3D3D3D;
 }
 main #contact input {
   width: 100%;
@@ -241,4 +244,17 @@ main #contact input[type=submit] {
   color: white;
   border-radius: 20px;
   background-color: #1D6154;
+}
+
+footer {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: white;
+  padding: 0 107px;
+}
+footer p {
+  font-weight: 300;
+  font-size: 14px;
 }/*# sourceMappingURL=main.css.map */

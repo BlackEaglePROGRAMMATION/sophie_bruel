@@ -97,6 +97,7 @@ main {
                 figcaption {
                     height: 15px;
                     font-size: 13px;
+                    color: $third-color;
                 }                
             }
         }
@@ -120,11 +121,13 @@ main {
         p {
             text-align: center;
             margin: 9px 0 39px;
+            color: $third-color;
         }
 
         label {
             padding: 2px 0;
             margin-bottom: 7px;
+            color: $third-color;
         }
 
         input {
