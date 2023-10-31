@@ -1,0 +1,54 @@
+#login {
+    width: 379px;
+    margin: 0 auto 20px;
+    @include flx-column;
+
+    h2 {
+        text-align: center;
+        color: $second-color;
+        margin: 100px auto 37px;
+
+        font-family: 'Syne', sans-serif;
+        font-weight: 700;
+        font-size: 30px;
+    }
+
+    label {
+        margin-bottom: 7px;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    input {
+        height: 51px;
+        margin-bottom: 30px;
+    }
+
+    button {
+        width: 179px;
+        height: 36px;
+        transition: all .3s ease;
+
+        display: flex;
+        @include center;
+        margin: 7px auto;
+
+        background-color: $second-color;
+        border-radius: 20px;
+        color: white;
+    }
+
+    button:hover {
+        opacity: .7;
+        transform: scale(.9);
+    }
+}
+
+.forgotPassword {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.forgotPassword:hover {
+    text-decoration: underline;
+}

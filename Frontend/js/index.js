@@ -84,4 +84,4 @@ const formContact = document.querySelector('#contact');
 
 formContact.addEventListener('submit', (e) => {
     e.preventDefault();
-})
+});

@@ -7,7 +7,15 @@ body {
 	font-size: 14px;
 }
 
+main {
+    min-height: 85vh;
+    @include flx-column;
+    align-items: center;
+}
+
 input {
+    padding: 0 15px;
+    font-size: 20px;
     box-shadow: 0 4px 14px #00000017;
     outline: none;
     border: none;
@@ -20,6 +28,7 @@ a {
 
 button {
     border: none;
+    cursor: pointer;
     background-color: transparent;
 }
 

@@ -12,6 +12,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	
 	<link rel="stylesheet" href="./../sass/main.css">
+    <script src="./../js/login.js" defer></script>
 
 	<title>Sophie Bluel - Architecte d'intérieur</title>
 </head>
@@ -38,7 +39,21 @@
         </nav>
     </header>
 
-    <main></main>
+    <main>
+        <form id="login">
+            <h2>Log In</h2>
+    
+            <label for="email">E-mail</label>
+            <input type="text" name="email" id="email">
+
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password">
+        
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <a href="#" class="forgotPassword">Mot de passe oublié</a>
+    </main>
 
     <footer>
         <p>Mentions Légales</p>
