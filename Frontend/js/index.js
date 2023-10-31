@@ -20,26 +20,68 @@ const addCategories = async () => {
 
         containerFilter.appendChild(filter);
     }
+
+    return containerFilter.children;
 }
 
-const addFigures = async () => {
-    const figures = await fetchFigures();
-    const gallery = document.querySelector('.gallery');
+const gallery = document.querySelector('.gallery');
 
-    for (let dataFigure of figures) {
-        const figure = document.createElement('figure');
-        figure.innerHTML = `
-            <img src="${dataFigure.imageUrl}" alt="${dataFigure.title}">
-            <figcaption>${dataFigure.title}</figcaption>
+const addFigures = async (data, container) => {
+    for (let figure of data) {
+        const newFigure = document.createElement('figure');
+        newFigure.innerHTML = `
+            <img src="${figure.imageUrl}" alt="${figure.title}">
+            <figcaption>${figure.title}</figcaption>
         `;
 
-        gallery.appendChild(figure);
+        container.appendChild(newFigure);
     }
 }
 
-function initialization() {
-    addCategories();
-    addFigures();
+async function filterFigures() {
+    const figures = await fetchFigures();
+    addFigures(figures, gallery);    
+
+    const filters = await addCategories();
+
+    for (let i = 0; i < filters.length; i++) {
+        filters[i].addEventListener('click', () => {
+            
+            setFilterActif(filters, i);
+            gallery.innerHTML = '';
+
+            if (i === 0) {
+                addFigures(figures, gallery);
+                return;
+            }
+
+            const newGallery = figures.filter((data) => data.categoryId === i);
+
+            for (let element of newGallery) {
+                const figure = document.createElement('figure');
+                figure.innerHTML = `
+                    <img src="${element.imageUrl}" alt="${element.title}">
+                    <figcaption>${element.title}</figcaption>
+                `;
+
+                gallery.appendChild(figure);
+            }
+        });
+    }
 }
 
-initialization();
+filterFigures();
+
+function setFilterActif(buttons, idx) {
+    for (let button of buttons) {
+        button.className = '';
+    }
+
+    buttons[idx].className = 'actif';
+}
+
+const formContact = document.querySelector('#contact');
+
+formContact.addEventListener('submit', (e) => {
+    e.preventDefault();
+})
