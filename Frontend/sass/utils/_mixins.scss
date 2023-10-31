@@ -1,0 +1,9 @@
+@mixin flx-column () {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin center () {
+    align-items: center;
+    justify-content: center;
+}

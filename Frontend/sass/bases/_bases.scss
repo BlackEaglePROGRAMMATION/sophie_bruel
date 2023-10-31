@@ -1,0 +1,22 @@
+body {
+	max-width: 1140px;
+	margin: auto;
+
+    background-color: $background-color;
+	font-family: 'Work Sans' ;
+	font-size: 14px;
+}
+
+input {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
