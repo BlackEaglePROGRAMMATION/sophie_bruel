@@ -19,13 +19,13 @@ main {
         article {
             width: 404px;
             row-gap: 19px;
-            @include flx-column;            
+            @include flx-column;
 
             h2 {
                 color: $second-color;
                 font-family: 'Syne', sans-serif;
-                font-weight: 700;    
-                font-size: 30px;            
+                font-weight: 700;
+                font-size: 30px;
             }
 
             p {
@@ -36,16 +36,42 @@ main {
     }
 
     #portfolio {
+        width: 100%;
         @include flx-column;
 
         h2 {
-            text-align: center;
+            display: flex;
+            column-gap: 30px;
+            align-items: center;
+
             color: $second-color;
-            margin-bottom: 51px;
+            margin: 0 auto 51px;
+            padding-left: 30px;
 
             font-family: 'Syne', sans-serif;
             font-weight: 700;
             font-size: 30px;
+
+            .btnOpen-modal {
+                display: flex;
+                font-size: 14px;
+                column-gap: 10px;
+                transition: all .2s;
+                display: none;
+            }
+
+            .btnOpen-modal:hover {
+                opacity: .7;
+            }
+
+            .btnOpen-modal::before {
+                content: '\f044';
+                font-weight: 100;
+                font-family: 'Font Awesome 5 Free';
+
+                display: flex;
+                font-size: 16px;
+            }
         }
 
         .container-filter {
@@ -63,8 +89,8 @@ main {
                 cursor: pointer;
                 transition: all .3s;
                 color: $second-color;
-                
-                background-color: white;
+
+                background-color: transparent;
                 border: solid 1px $second-color;
             }
 
@@ -98,7 +124,7 @@ main {
                     height: 15px;
                     font-size: 13px;
                     color: $third-color;
-                }                
+                }
             }
         }
     }
@@ -148,9 +174,38 @@ main {
             @include center;
             margin: 0 auto;
 
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+
             color: white;
             border-radius: 20px;
             background-color: $second-color;
         }
+    }
+}
+
+.banner {
+    height: 59px;
+    display: flex;
+    @include center;
+
+    background-color: black;
+    color: white;
+    display: none;
+
+    p {
+        display: flex;
+        column-gap: 10px;
+        align-items: center;
+    }
+
+    p::before {
+        content: '\f044';
+        font-weight: 100;
+        font-family: 'Font Awesome 5 Free';
+
+        display: flex;
+        font-size: 16px;
     }
 }
