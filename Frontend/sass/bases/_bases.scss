@@ -8,7 +8,9 @@ body {
 }
 
 input {
+    box-shadow: 0 4px 14px #00000017;
     outline: none;
+    border: none;
 }
 
 a {
@@ -19,4 +21,11 @@ a {
 button {
     border: none;
     background-color: transparent;
+}
+
+textarea {
+    box-shadow: 0 4px 14px #00000017;
+    outline: none;
+    border: none;
+    resize: none;
 }

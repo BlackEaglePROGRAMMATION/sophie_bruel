@@ -1,0 +1,153 @@
+main {
+    #introduction {
+        display: flex;
+        @include center;
+        column-gap: 100px;
+        margin: 139px;
+
+        figure {
+            width: 474px;
+            height: 355px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        article {
+            width: 404px;
+            row-gap: 19px;
+            @include flx-column;            
+
+            h2 {
+                color: $second-color;
+                font-family: 'Syne', sans-serif;
+                font-weight: 700;    
+                font-size: 30px;            
+            }
+
+            p {
+                line-height: 16px;
+                color: $third-color;
+            }
+        }
+    }
+
+    #portfolio {
+        @include flx-column;
+
+        h2 {
+            text-align: center;
+            color: $second-color;
+            margin-bottom: 51px;
+
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .container-filter {
+            display: flex;
+            column-gap: 10px;
+            justify-content: center;
+
+            button {
+                font-family: 'Syne', sans-serif;
+                font-weight: 700;
+
+                padding: 10px 25px;
+                border-radius: 20px;
+
+                cursor: pointer;
+                transition: all .3s;
+                color: $second-color;
+                
+                background-color: white;
+                border: solid 1px $second-color;
+            }
+
+            .actif,
+            button:hover {
+                color: white;
+                background-color: $second-color;
+            }
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+
+            row-gap: 16px;
+            column-gap: 18px;
+            margin: 51px 245px;
+
+            figure {
+                width: calc(33% - 9px);
+                height: 425px;
+
+                @include flx-column;
+                justify-content: space-between;
+
+                img {
+                    height: 407px;
+                }
+
+                figcaption {
+                    height: 15px;
+                    font-size: 13px;
+                }                
+            }
+        }
+    }
+
+    #contact {
+        width: 380px;
+        @include flx-column;
+        margin: 6px auto 45px;
+
+        h2 {
+            text-align: center;
+            color: $second-color;
+            padding: 6px 0;
+
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        p {
+            text-align: center;
+            margin: 9px 0 39px;
+        }
+
+        label {
+            padding: 2px 0;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            height: 51px;
+            margin-bottom: 40px;
+        }
+
+        textarea {
+            margin-bottom: 40px;
+        }
+
+        input[type=submit] {
+            width: 179px;
+            height: 36px;
+
+            display: flex;
+            @include center;
+            margin: 0 auto;
+
+            color: white;
+            border-radius: 20px;
+            background-color: $second-color;
+        }
+    }
+}
