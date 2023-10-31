@@ -48,7 +48,7 @@ table {
 }
 
 body {
-  max-width: 1140px;
+  max-width: 1440px;
   margin: auto;
   background-color: #FFFEF8;
   font-family: "Work Sans";
@@ -67,4 +67,41 @@ a {
 button {
   border: none;
   background-color: transparent;
+}
+
+header {
+  display: flex;
+  margin: 50px 150px;
+  justify-content: space-between;
+}
+header h1 {
+  color: #B1663C;
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+}
+header h1 span {
+  font-family: "Work Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 10px;
+}
+header nav ul {
+  display: flex;
+  column-gap: 44px;
+  align-items: center;
+}
+header nav ul a {
+  width: 55px;
+  height: 19px;
+  transition: all 0.2s;
+}
+header nav ul a:hover {
+  color: #B1663C;
+}
+header nav ul img {
+  height: 22px;
+}
+header nav ul .bold {
+  font-weight: 600;
 }/*# sourceMappingURL=main.css.map */
