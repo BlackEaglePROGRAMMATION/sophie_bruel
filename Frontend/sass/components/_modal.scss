@@ -1,6 +1,7 @@
 .sect-modal {
     width: 100%;
     height: 100vh;
+    max-width: 1440px;
     display: none;
 
     background-color: #0000004D;
@@ -43,26 +44,24 @@
 
         .container {
             display: flex;
-            flex-wrap: wrap;
-
-            row-gap: 29px;
-            column-gap: 9px;      
             
-            border-bottom: solid 1px #B3B3B3;
-            padding-bottom: 50px;
             margin: 46px 0 38px;        
+            padding-bottom: 50px;
+
+            border-bottom: solid 1px #B3B3B3;
         
+
             figure {
                 width: 76px;         
                 position: relative;       
                 @include flx-column;
 
-                img {
+                .figure {
                     width: 100%;
                     height: 100px;
                 }
 
-                .fas {
+                .fa-trash-can {
                     cursor: pointer;
                     transition: all .2s;
 
@@ -78,10 +77,111 @@
                     top: 6px;
                 }
 
-                .fas:hover {
+                .fa-trash-can:hover {
                     opacity: .7;                    
                 }
             }
+
+            .container-inputImg {
+                height: 169px;
+                position: relative;
+                margin-bottom: 9px;
+                background-color: #E8F1F6;
+
+                .fa-image,
+                label,
+                p,
+                img {
+                    transition: .3s;
+                    transform: translateX(-50%);
+                    position: absolute;                    
+                    left: 50%;
+                }
+
+                .fa-image {
+                    width: 76px;
+                    height: 76px;
+
+                    display: flex;
+                    @include center;
+
+                    font-size: 4rem;
+                    color: #B9C5CC;
+
+                    top: 13px;
+                }
+
+                label {
+                    width: 176px;
+                    height: 36px;
+                    
+                    display: flex;
+                    @include center;
+                    font-size: 14px;
+
+                    color: #306685;
+                    border-radius: 20px;
+                    background-color: #CBD6DC;
+
+                    top: 95px;
+                }
+
+                p {
+                    top: 138px;
+                    font-size: 10px;
+                    color: #444444;
+                }
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    
+                    cursor: pointer;
+                    display: flex;
+                    opacity: 0;
+                    
+                    position: absolute;
+                    z-index: 5;
+                    top: 0;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+
+            .container-inputImg:hover {
+                .fa-image,
+                label,
+                p,
+                img {
+                    opacity: .7;
+                }
+            }
+
+            .title,
+            .categories {
+                font-size: 14px;
+                color: $third-color;
+                margin: 21px 0 10px;
+            }
+
+            input,
+            select {
+                height: 51px;
+            }
+        }
+
+        .first-page {
+            row-gap: 29px;
+            column-gap: 9px;      
+            flex-wrap: wrap;
+        }
+
+        .second-page {
+            flex-direction: column;
         }
 
         .validation {

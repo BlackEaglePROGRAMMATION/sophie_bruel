@@ -26,15 +26,14 @@ const addCategories = async () => {
 
 const gallery = document.querySelector('.gallery');
 
-const addFigures = async (data, container, edit) => {
+const addFigures = async (data, container) => {
     for (let figure of data) {
         const newFigure = document.createElement('figure');
         newFigure.dataset.id = figure.id;
 
-        newFigure.innerHTML = `
-            ${edit ? `<i class="fas fa-trash-can"></i>` : ''}
+        newFigure.innerHTML = `            
             <img src="${figure.imageUrl}" alt="${figure.title}">
-            <figcaption>${edit ? '' : figure.title}</figcaption>
+            <figcaption>${figure.title}</figcaption>
         `;
 
         container.appendChild(newFigure);
@@ -43,7 +42,7 @@ const addFigures = async (data, container, edit) => {
 
 async function filterFigures() {
     const figures = await fetchFigures();
-    addFigures(figures, gallery, false);    
+    addFigures(figures, gallery);    
 
     const filters = await addCategories();
 
@@ -54,21 +53,12 @@ async function filterFigures() {
             gallery.innerHTML = '';
 
             if (i === 0) {
-                addFigures(figures, gallery, false);
+                addFigures(figures, gallery);
                 return;
             }
 
             const newGallery = figures.filter((data) => data.categoryId === i);
-
-            for (let element of newGallery) {
-                const figure = document.createElement('figure');
-                figure.innerHTML = `
-                    <img src="${element.imageUrl}" alt="${element.title}">
-                    <figcaption>${element.title}</figcaption>
-                `;
-
-                gallery.appendChild(figure);
-            }
+            addFigures(newGallery, gallery);            
         });
     }
 }
