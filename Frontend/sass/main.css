@@ -503,7 +503,8 @@ main #contact input[type=submit] {
 .sect-modal .modal .second-page {
   flex-direction: column;
 }
-.sect-modal .modal .validation {
+.sect-modal .modal .btn-pageOne,
+.sect-modal .modal .btn-pageTwo {
   display: flex;
   margin: 0 auto;
   align-items: center;

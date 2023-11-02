@@ -184,7 +184,8 @@
             flex-direction: column;
         }
 
-        .validation {
+        .btn-pageOne,
+        .btn-pageTwo {
             display: flex;
             margin: 0 auto;
             @include center;

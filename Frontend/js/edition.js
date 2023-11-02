@@ -9,7 +9,9 @@ const btnClose_modal = document.querySelector('.sect-modal .fa-xmark');
 const btnReturn_modal = document.querySelector('.sect-modal .fa-arrow-left');
 
 const title_modal = document.querySelector('.sect-modal h3');
-const btnValidation_modal = document.querySelector('.sect-modal .validation');
+
+const btn_pageOne = document.querySelector('.btn-pageOne');
+const btn_pageTwo = document.querySelector('.btn-pageTwo');
 
 const token = sessionStorage.getItem('token');
 
@@ -27,6 +29,16 @@ function modeEdition() {
         addFirstPage();
     });
 
+    btn_pageOne.addEventListener('click', () => {
+        container_modal.classList.add('second-page');
+        container_modal.classList.remove('first-page');
+        addSecondPage();
+    });
+
+    btn_pageTwo.addEventListener('click', () => {
+        addNewProject();
+    });
+
     btnReturn_modal.addEventListener('click', () => {
         addFirstPage();
     });
@@ -40,9 +52,9 @@ modeEdition();
 
 
 const addFiguresEdit = async () => {
+    const figures = await fetchFigures();
 
     container_modal.innerHTML = '';
-    const figures = await fetchFigures();
 
     for (let figure of figures) {
         const newFigure = document.createElement('figure');
@@ -58,28 +70,26 @@ const addFiguresEdit = async () => {
 }
 
 function addFirstPage() {
+    btn_pageOne.style.display = 'flex';
+    btn_pageTwo.style.display = 'none';
+
     btnReturn_modal.style.display = 'none';
     title_modal.textContent = 'Galerie photo';
-    btnValidation_modal.textContent = 'Ajouter une photo';
 
     container_modal.classList.add('first-page');
     container_modal.classList.remove('second-page');
 
     addFiguresEdit();
-
-    btnValidation_modal.addEventListener('click', () => {
-        container_modal.classList.add('second-page');
-        container_modal.classList.remove('first-page');
-        addSecondPage();
-    });
 }
 
 async function addSecondPage() {
+    const categories = await fetchCategories();
+
     btnReturn_modal.style.display = 'flex';
     title_modal.textContent = 'Ajout photo';
-    btnValidation_modal.textContent = 'Valider';
 
-    const categories = await fetchCategories();
+    btn_pageOne.style.display = 'none';
+    btn_pageTwo.style.display = 'flex';
 
     container_modal.innerHTML = `
         <div class='container-inputImg'>
@@ -90,7 +100,7 @@ async function addSecondPage() {
         </div>
 
         <label class='title'>Titre</label>
-        <input type='text'>
+        <input class='input-title' type='text'>
 
         <label class='categories'>Catégorie</label>
         <select>
@@ -120,5 +130,27 @@ const gestionPreview = () => {
             image.src = preview.result;
             container_input.appendChild(image);
         };
+    });
+}
+
+const addNewProject = () => {
+    const image = document.querySelector('input[type=file]');
+    const title = document.querySelector('.input-title').value;
+    const category = document.querySelector('.modal select').value;
+
+    if (!image.files[0] || title === '') {
+        return;
+    }
+
+    const formData = new FormData();
+
+    formData.append('title', title);
+    formData.append('category', category);
+    formData.append('image', image.files[0]);
+
+    fetch("http://localhost:5678/api/works", {
+        method: "POST",
+        headers: { "Authorization": `Bearer ${token}` },
+        body: formData
     });
 }
