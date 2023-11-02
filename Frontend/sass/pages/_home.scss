@@ -188,6 +188,7 @@ main {
     height: 59px;
     display: flex;
     @include center;
+    user-select: none;
 
     background-color: black;
     color: white;

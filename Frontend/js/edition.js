@@ -61,12 +61,14 @@ const addFiguresEdit = async () => {
         newFigure.dataset.id = figure.id;
 
         newFigure.innerHTML = `
-            <i class="fas fa-trash-can"></i>
+            <i class="fas fa-trash-can" data-id='${figure.id}'></i>
             <img class='figure' src="${figure.imageUrl}" alt="${figure.title}">            
         `;
 
         container_modal.appendChild(newFigure);
     }
+
+    gestionDeleteProject();
 }
 
 function addFirstPage() {
@@ -153,4 +155,17 @@ const addNewProject = () => {
         headers: { "Authorization": `Bearer ${token}` },
         body: formData
     });
+}
+
+const gestionDeleteProject = () => {
+    const all_btnDelete = document.querySelectorAll('.fa-trash-can');
+
+    for (let button of all_btnDelete) {
+        button.addEventListener('click', () => {
+            fetch(`http://localhost:5678/api/works/${button.dataset.id}`, {
+                method: "DELETE",
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+        });
+    }
 }
