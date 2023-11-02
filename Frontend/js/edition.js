@@ -20,6 +20,17 @@ function modeEdition() {
         return;
     }
 
+    const btn_login = document.querySelector('.btn-login');
+    const btn_logout = document.querySelector('.btn-logout');
+
+    btn_login.style.display = 'none';
+    btn_logout.style.display = 'flex';
+
+    btn_logout.addEventListener('click', () => {
+        sessionStorage.removeItem('token');    
+        location.reload();    
+    });
+
     banner.style.display = 'flex';
     btnOpen_modal.style.display = 'flex';
     containerFilter.style.display = 'none';

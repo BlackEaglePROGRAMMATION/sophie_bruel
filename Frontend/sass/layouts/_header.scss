@@ -22,13 +22,15 @@ header {
         column-gap: 44px;
         align-items: center;
         
-        a {
+        a,
+        button {
             width: 55px;
             height: 19px;
             transition: all .2s;
         }
 
-        a:hover {
+        a:hover,
+        button:hover {
             color: $primary-color;
         }
 
@@ -38,6 +40,10 @@ header {
 
         .bold {
             font-weight: 600;
+        }
+
+        .btn-logout {
+            display: none;
         }
     }
 }

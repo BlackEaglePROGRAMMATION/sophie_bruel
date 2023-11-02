@@ -111,12 +111,14 @@ header nav ul {
   column-gap: 44px;
   align-items: center;
 }
-header nav ul a {
+header nav ul a,
+header nav ul button {
   width: 55px;
   height: 19px;
   transition: all 0.2s;
 }
-header nav ul a:hover {
+header nav ul a:hover,
+header nav ul button:hover {
   color: #B1663C;
 }
 header nav ul img {
@@ -124,6 +126,9 @@ header nav ul img {
 }
 header nav ul .bold {
   font-weight: 600;
+}
+header nav ul .btn-logout {
+  display: none;
 }
 
 main #introduction {
